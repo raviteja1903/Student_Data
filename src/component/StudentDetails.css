@@ -1,0 +1,35 @@
+/* Student Details Card */
+.student-card {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.student-card h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.student-card ul.list-group {
+  margin-bottom: 20px;
+}
+
+.student-card ul.list-group li {
+  padding: 12px 15px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  margin-bottom: 8px;
+}
+
+.student-card button.btn {
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
