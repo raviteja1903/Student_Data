@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+const BACKEND_URL = "https://student-data-backend-u9w8.onrender.com";
 
 const RegisterForm = ({ onRegisterSuccess, onToggleLogin }) => {
   const [studentId, setStudentId] = useState("");
@@ -11,13 +12,21 @@ const RegisterForm = ({ onRegisterSuccess, onToggleLogin }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/students/register", {
+      await axios.post(`${BACKEND_URL}/api/students/register`, {
         studentId,
         name,
         course,
         email,
         password,
       });
+
+      // await axios.post("http://localhost:5000/api/students/register", {
+      //   studentId,
+      //   name,
+      //   course,
+      //   email,
+      //   password,
+
       alert("✅ Registered successfully!");
       onRegisterSuccess();
     } catch (err) {
