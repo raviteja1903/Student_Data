@@ -1,82 +1,89 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./RegistrationForm.css";
 
-const RegistrationForm = ({ onRegistered }) => {
-  const [formData, setFormData] = useState({
-    studentId: "",
-    name: "",
-    email: "",
-    password: "",
-    course: "",
-  });
-
-  const handleChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+const RegisterForm = ({ onRegisterSuccess, onToggleLogin }) => {
+  const [studentId, setStudentId] = useState("");
+  const [name, setName] = useState("");
+  const [course, setCourse] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/students/register", formData);
+      await axios.post("http://localhost:5000/api/students/register", {
+        studentId,
+        name,
+        course,
+        email,
+        password,
+      });
       alert("✅ Registered successfully!");
-      onRegistered();
+      onRegisterSuccess();
     } catch (err) {
       alert("❌ " + (err.response?.data?.error || err.message));
     }
   };
 
   return (
-    <div>
-      <h4 className="text-center mb-3">Register</h4>
+    <div
+      className="card shadow p-4"
+      style={{ maxWidth: "400px", width: "100%" }}
+    >
+      <h2 className="text-center mb-4">Register</h2>
       <form onSubmit={handleSubmit}>
         <input
-          className="form-control mb-2"
-          name="studentId"
+          type="text"
+          className="form-control mb-3"
           placeholder="Student ID"
-          value={formData.studentId}
-          onChange={handleChange}
+          value={studentId}
+          onChange={(e) => setStudentId(e.target.value)}
           required
         />
         <input
-          className="form-control mb-2"
-          name="name"
-          placeholder="Full Name"
-          value={formData.name}
-          onChange={handleChange}
+          type="text"
+          className="form-control mb-3"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          className="form-control mb-3"
+          placeholder="Course"
+          value={course}
+          onChange={(e) => setCourse(e.target.value)}
           required
         />
         <input
           type="email"
-          className="form-control mb-2"
-          name="email"
+          className="form-control mb-3"
           placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
         <input
           type="password"
-          className="form-control mb-2"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <input
           className="form-control mb-3"
-          name="course"
-          placeholder="Course"
-          value={formData.course}
-          onChange={handleChange}
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button className="btn btn-success w-100" type="submit">
+        <button className="btn btn-success w-100 mb-3" type="submit">
           Register
         </button>
       </form>
+      {/* 🔽 Toggle link inside card */}
+      <div className="text-center">
+        <button className="btn btn-link" onClick={onToggleLogin}>
+          ← Back to Login
+        </button>
+      </div>
     </div>
   );
 };
 
-export default RegistrationForm;
+export default RegisterForm;

@@ -1,35 +1,90 @@
-/* Student Details Card */
+/* Student card container */
 .student-card {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 25px;
-  background: #ffffff;
+  max-width: 450px;
   border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease-in-out;
 }
 
+.student-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Title */
 .student-card h2 {
-  margin-bottom: 20px;
+  font-size: 1.6rem;
+  font-weight: 600;
   color: #333;
-  text-align: center;
 }
 
-.student-card ul.list-group {
-  margin-bottom: 20px;
+/* List styling */
+.list-group-item {
+  font-size: 1rem;
+  padding: 12px 16px;
+  border: none;
+  border-bottom: 1px solid #eee;
 }
 
-.student-card ul.list-group li {
-  padding: 12px 15px;
-  font-size: 15px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  margin-bottom: 8px;
+.list-group-item:last-child {
+  border-bottom: none;
 }
 
-.student-card button.btn {
-  width: 100%;
-  padding: 10px;
-  font-weight: bold;
+.list-group-item strong {
+  color: #555;
+  margin-right: 5px;
+}
+
+/* Logout button */
+.student-card .btn-secondary {
+  background: #6c757d;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
   border-radius: 8px;
-  cursor: pointer;
+  padding: 10px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.student-card .btn-secondary:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .student-card {
+    margin: 20px;
+    padding: 1.5rem !important;
+  }
+
+  .student-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .list-group-item {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .student-card {
+    max-width: 100%;
+    padding: 1rem !important;
+  }
+
+  .student-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .list-group-item {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+
+  .student-card .btn-secondary {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
 }

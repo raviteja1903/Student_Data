@@ -1,69 +1,96 @@
-/* Login card container */
-.login-card {
-  max-width: 400px;
-  margin: 50px auto; /* center vertically with space on top */
-  padding: 25px;
-  background-color: #ffffff;
+/* Card container */
+.card {
+  background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 25px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Hover effect for card */
-.login-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-/* Card title */
-.login-card h2 {
-  margin-bottom: 20px;
-  color: #333333;
+/* Title */
+.card h2 {
+  font-size: 1.7rem;
   font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 /* Input fields */
-.login-card input.form-control {
-  margin-bottom: 15px;
-  padding: 10px 12px;
-  font-size: 16px;
+.form-control {
   border-radius: 8px;
-  border: 1px solid #ced4da;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #ccc;
+  padding: 12px;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
 }
 
-/* Focus effect for inputs */
-.login-card input.form-control:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0,123,255,0.3);
+.form-control:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 6px rgba(37, 117, 252, 0.4);
   outline: none;
 }
 
-/* Submit button */
-.login-card button.btn {
-  padding: 10px 15px;
-  font-size: 16px;
-  font-weight: bold;
+/* Login button */
+.btn-primary {
+  background-color: #2575fc;
+  border: none;
+  color: #fff;
+  font-weight: 500;
   border-radius: 8px;
+  padding: 12px;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #1a5ed7;
+}
+
+/* Toggle Register link */
+.btn-link {
+  color: #2575fc;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: transparent;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  padding: 0;
 }
 
-/* Hover effect for button */
-.login-card button.btn:hover {
-  background-color: #0056b3;
+.btn-link:hover {
+  text-decoration: underline;
 }
 
-/* Responsive adjustments */
-@media (max-width: 500px) {
-  .login-card {
-    margin: 30px 15px;
-    padding: 20px;
+/* Responsive */
+@media (max-width: 576px) {
+  .card {
+    padding: 20px 15px;
   }
 
-  .login-card input.form-control,
-  .login-card button.btn {
-    font-size: 14px;
+  .card h2 {
+    font-size: 1.4rem;
+  }
+
+  .form-control {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .btn-primary {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

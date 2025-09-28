@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./LoginForm.css";
 
-const LoginForm = ({ onLogin }) => {
+const LoginForm = ({ onLogin, onToggleRegister }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -21,8 +20,8 @@ const LoginForm = ({ onLogin }) => {
   };
 
   return (
-    <div className="card shadow-sm p-4 mx-auto login-card">
-      <h2 className="card-title text-center mb-4">Login</h2>
+    <div className="card shadow p-4" style={{ maxWidth: "400px", width: "100%" }}>
+      <h2 className="text-center mb-4">Login</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
@@ -40,10 +39,16 @@ const LoginForm = ({ onLogin }) => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button className="btn btn-primary w-100" type="submit">
+        <button className="btn btn-primary w-100 mb-3" type="submit">
           Login
         </button>
       </form>
+      {/* 🔽 Toggle link goes inside card */}
+      <div className="text-center">
+        <button className="btn btn-link" onClick={onToggleRegister}>
+          + Register
+        </button>
+      </div>
     </div>
   );
 };

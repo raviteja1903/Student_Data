@@ -1,44 +1,28 @@
- 
-import { useState } from 'react';
-import './App.css';
-import LoginForm from './component/LoginForm';
-import RegistrationForm from './component/RegistrationForm';
-import StudentDetails from './component/StudentDetails';
+import { useState } from "react";
+import "./App.css";
+import RegisterForm from "./component/RegistrationForm";
+import LoginForm from "./component/LoginForm";
+import StudentDetails from "./component/StudentDetails";
 
 function App() {
-  const [showRegistration, setShowRegistration] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
   const [student, setStudent] = useState(null);
 
   return (
-    <div className="container">
-      {!student && !showRegistration && (
-        <LoginForm onLogin={(studentData) => setStudent(studentData)} />
-      )}
-
-      {!student && (
-        <button
-          className="register-toggle-btn btn btn-success"
-          onClick={() => setShowRegistration(true)}
-        >
-          +
-        </button>
-      )}
-
-      {showRegistration && !student && (
-        <div className="registration-modal">
-          <button
-            className="close-btn"
-            onClick={() => setShowRegistration(false)}
-          >
-            X
-          </button>
-          <RegistrationForm
-            onRegistered={() => setShowRegistration(false)}
+    <div className="container d-flex flex-column align-items-center mt-5">
+      {!student ? (
+        showRegister ? (
+          <RegisterForm
+            onRegisterSuccess={() => setShowRegister(false)}
+            onToggleLogin={() => setShowRegister(false)}
           />
-        </div>
-      )}
-
-      {student && (
+        ) : (
+          <LoginForm
+            onLogin={setStudent}
+            onToggleRegister={() => setShowRegister(true)}
+          />
+        )
+      ) : (
         <StudentDetails student={student} onLogout={() => setStudent(null)} />
       )}
     </div>

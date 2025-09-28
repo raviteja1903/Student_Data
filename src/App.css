@@ -35,6 +35,17 @@
   z-index: 999;
   animation: slideDown 0.3s ease-out;
 }
+body {
+  background-color: #f8f9fa;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+button {
+  font-weight: bold;
+}
 
 .registration-modal .close-btn {
   position: absolute;

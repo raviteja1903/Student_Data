@@ -1,59 +1,96 @@
-/* Registration Modal */
-.registration-modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #ffffff;
-  width: 400px;
-  padding: 30px 20px;
+/* Card container */
+.card {
+  background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  z-index: 999;
-  animation: slideDown 0.3s ease-out;
+  padding: 25px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Slide down animation */
-@keyframes slideDown {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -60%);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
+/* Title */
+.card h2 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-/* Close button */
-.registration-modal .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 18px;
-  font-weight: bold;
+/* Input fields */
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 12px;
+  font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 6px rgba(40, 167, 69, 0.4);
+  outline: none;
+}
+
+/* Register button */
+.btn-success {
+  background-color: #28a745;
   border: none;
-  background: none;
-  cursor: pointer;
-  color: #dc3545;
-}
-
-/* Form inside modal */
-.registration-modal form {
-  display: flex;
-  flex-direction: column;
-}
-
-.registration-modal input.form-control {
-  margin-bottom: 12px;
-  padding: 10px;
+  color: #fff;
+  font-weight: 500;
   border-radius: 8px;
-  border: 1px solid #ced4da;
+  padding: 12px;
+  transition: background 0.3s;
 }
 
-.registration-modal button.btn {
-  padding: 10px;
-  font-weight: bold;
-  border-radius: 8px;
+.btn-success:hover {
+  background-color: #218838;
+}
+
+/* Toggle Login link */
+.btn-link {
+  color: #28a745;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: transparent;
+  border: none;
   cursor: pointer;
+  padding: 0;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .card {
+    padding: 20px 15px;
+  }
+
+  .card h2 {
+    font-size: 1.4rem;
+  }
+
+  .form-control {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .btn-success {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
