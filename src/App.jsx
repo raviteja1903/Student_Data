@@ -1,8 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-// import RegisterForm from "./component/RegistrationForm";
-import RegisterForm from "./component/RegisterForm";
-
+import RegisterForm from "./component/RegistrationForm";
 import LoginForm from "./component/LoginForm";
 import StudentDetails from "./component/StudentDetails";
 
