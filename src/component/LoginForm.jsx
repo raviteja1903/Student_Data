@@ -69,3 +69,4 @@ const handleSubmit = async (e) => {
     alert("❌ " + (err.response?.data?.error || err.message));
   }
 };
+export default LoginForm;
