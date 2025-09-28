@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import './RegistrationForm.css';
+import "./RegistrationForm.css";
 
 const RegistrationForm = ({ onRegistered }) => {
   const [formData, setFormData] = useState({
@@ -8,10 +8,11 @@ const RegistrationForm = ({ onRegistered }) => {
     name: "",
     email: "",
     password: "",
-    course: ""
+    course: "",
   });
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,12 +29,51 @@ const RegistrationForm = ({ onRegistered }) => {
     <div>
       <h4 className="text-center mb-3">Register</h4>
       <form onSubmit={handleSubmit}>
-        <input className="form-control mb-2" name="studentId" placeholder="Student ID" value={formData.studentId} onChange={handleChange} required />
-        <input className="form-control mb-2" name="name" placeholder="Full Name" value={formData.name} onChange={handleChange} required />
-        <input type="email" className="form-control mb-2" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-        <input type="password" className="form-control mb-2" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
-        <input className="form-control mb-3" name="course" placeholder="Course" value={formData.course} onChange={handleChange} required />
-        <button className="btn btn-success w-100" type="submit">Register</button>
+        <input
+          className="form-control mb-2"
+          name="studentId"
+          placeholder="Student ID"
+          value={formData.studentId}
+          onChange={handleChange}
+          required
+        />
+        <input
+          className="form-control mb-2"
+          name="name"
+          placeholder="Full Name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="email"
+          className="form-control mb-2"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
+          className="form-control mb-2"
+          name="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
+        <input
+          className="form-control mb-3"
+          name="course"
+          placeholder="Course"
+          value={formData.course}
+          onChange={handleChange}
+          required
+        />
+        <button className="btn btn-success w-100" type="submit">
+          Register
+        </button>
       </form>
     </div>
   );
